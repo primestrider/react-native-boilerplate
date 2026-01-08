@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { ScrollView, View } from "react-native";
 
+import { useTheme } from "@/hooks/useTheme";
 import { BaseButton } from "@/shared/components/base/BaseButton";
 import { BaseText } from "@/shared/components/base/BaseText";
 import { ControlledFormField } from "@/shared/components/forms/ControllerFormField";
@@ -14,6 +15,9 @@ type ExampleFormValues = {
 };
 
 export default function FormExampleScreen() {
+  const theme = useTheme();
+  const { colors, spacing } = theme;
+
   const form = useForm<ExampleFormValues>({
     defaultValues: {
       name: "",
@@ -33,7 +37,13 @@ export default function FormExampleScreen() {
 
   return (
     <FormProvider {...form}>
-      <ScrollView style={{ padding: 16, gap: 16 }}>
+      <ScrollView
+        style={{ backgroundColor: colors.background }}
+        contentContainerStyle={{
+          padding: spacing.lg,
+          gap: spacing.md,
+        }}
+      >
         {/* ===== Header ===== */}
         <BaseText variant="title">Form Example</BaseText>
         <BaseText variant="caption">
@@ -99,10 +109,13 @@ export default function FormExampleScreen() {
         />
 
         {/* ===== Submit Button ===== */}
-        <BaseButton title="Submit Form" onPress={handleSubmit(onSubmit)} />
+        <BaseButton
+          title="Submit Form"
+          onPress={handleSubmit(onSubmit)}
+        />
 
         {/* ===== Debug Section ===== */}
-        <View style={{ marginTop: 16 }}>
+        <View style={{ marginTop: spacing.lg }}>
           <BaseText variant="caption">Debug Output</BaseText>
           <BaseText variant="caption">Name: {watch("name") || "-"}</BaseText>
           <BaseText variant="caption">Email: {watch("email") || "-"}</BaseText>

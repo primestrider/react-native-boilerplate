@@ -1,4 +1,8 @@
 export const typography = {
+  fontRegular: "WorkSans-Regular",
+  fontMedium: "WorkSans-Medium",
+  fontSemiBold: "WorkSans-SemiBold",
+  fontBold: "WorkSans-Bold",
   // 🔹 Display (hero / splash / big number)
   display: {
     fontSize: 32,
