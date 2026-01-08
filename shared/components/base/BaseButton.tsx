@@ -5,7 +5,7 @@ import {
   PressableProps,
   ViewStyle,
 } from "react-native";
-import { Text } from "./BaseText";
+import { BaseText } from "./BaseText";
 
 type Variant = "primary" | "secondary" | "ghost" | "danger";
 type Size = "sm" | "md" | "lg";
@@ -45,7 +45,7 @@ interface Props extends Omit<PressableProps, "style"> {
   style?: ViewStyle;
 }
 
-export function Button({
+export function BaseButton({
   title,
   variant = "primary",
   size = "md",
@@ -108,9 +108,9 @@ export function Button({
       {loading ? (
         <ActivityIndicator color={textColor} />
       ) : (
-        <Text variant="button" color={textColor} disableScaling>
+        <BaseText variant="button" color={textColor} disableScaling>
           {title}
-        </Text>
+        </BaseText>
       )}
     </Pressable>
   );

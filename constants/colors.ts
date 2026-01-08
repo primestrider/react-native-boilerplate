@@ -8,6 +8,8 @@ export const colors = {
     border: "#E2E8F0",
     danger: "#EF4444",
     success: "#22C55E",
+
+    disabled: "#E5E7EB", // ✅ ADD
   },
   dark: {
     background: "#020617",
@@ -18,5 +20,7 @@ export const colors = {
     border: "#1E293B",
     danger: "#F87171",
     success: "#4ADE80",
+
+    disabled: "#020617", // ✅ ADD (slightly darker surface)
   },
-};
+} as const;

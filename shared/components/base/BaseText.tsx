@@ -38,7 +38,7 @@ interface Props extends RNTextProps {
  * App Text component
  * Enforces typography system and theme colors
  */
-export const Text = memo(function Text({
+export const BaseText = memo(function Text({
   variant = "body",
   color,
   align,
